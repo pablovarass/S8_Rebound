@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <section class="container mt-5">
+        <h2 class="text-center">Registro</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form action="{% url 'registro' %}" method="post">
+                    {% csrf_token %}
+                    <!-- https://django-crispy-forms.readthedocs.io/en/latest/crispy_tag_forms.html -->
+                    {{ form|crispy }}
+                    <input type="submit" value="Guardar" class="btn btn-primary w-100">
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}
